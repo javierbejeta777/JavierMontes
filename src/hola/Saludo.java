@@ -21,6 +21,7 @@ public class Saludo {
         } else {
             System.out.println("El número " + numero + " no es primo.");
         }
+        System.out.println("Los divisores de " + numero + " son: " + obtenerDivisores(numero));
         
         // Cerrar el scanner
         scanner.close();
@@ -39,5 +40,18 @@ public class Saludo {
             }
         }
         return true;
+    }
+    // Método para obtener los divisores de un número
+    public static String obtenerDivisores(int numero) {
+        StringBuilder divisores = new StringBuilder();
+        for (int i = 1; i <= numero; i++) {
+            if (numero % i == 0) {
+                if (divisores.length() > 0) {
+                    divisores.append(", ");
+                }
+                divisores.append(i);
+            }
+        }
+        return divisores.toString();
     }
 }
